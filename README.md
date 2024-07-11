@@ -47,7 +47,6 @@ Adapter Trimming with Cutadapt
 ```bash
 cutadapt -a ADAPTER_SEQUENCE -o output.fastq input.fastq
 
-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML
 
 ### Variant Calling
 
