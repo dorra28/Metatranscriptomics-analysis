@@ -42,12 +42,50 @@ Quality assessment of sequencing data was performed using the following tools:
 ```bash
 multiqc /path_to_fastqc_outputs -o /output_directory
 
-## Adapter Trimming with Cutadapt
+Adapter Trimming with Cutadapt 
 
 ```bash
 cutadapt -a ADAPTER_SEQUENCE -o output.fastq input.fastq
 
+CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML
 
+### Variant Calling
+
+Multiple tools were evaluated for variant calling, including Snippy, GATK, Bcftools, and Lofreq, based on read coverage and depth against the reference sequence.
+
+### Functional Annotation
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopier le codejava -jar snpEff.jar -v genome_version input.vcf > output.ann.vcf   `
+
+### Genome Assembly
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   spades.py -1 input_R1.fastq -2 input_R2.fastq -o output_directory   `
+
+### Taxonomic Annotation
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   mafft input_sequences.fasta > aligned_sequences.fasta  nextstrain build --input aligned_sequences.fasta --output output_directory   `
+
+### Microbiome Analysis
+
+#### Bacterial Species Identification
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   kraken2 --paired --quality-threshold 20 --min-hits-groups 2 --db standard_db sample_R1.fastq sample_R2.fastq > kraken2_output.txt   `
+
+### Visualization with PAVIAN
+
+*   Download PAVIAN: [PAVIAN GitHub Repository](https://github.com/dnbaker/pavian)
+    
+
+#### Import Data
+
+*   Launch PAVIAN and import kraken2\_output.txt for visualization.
+    
+
+### Data Visualization and Alpha Diversity Analysis in R
+
+#### Quantification and Visualization
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   library(tidyverse)  # Read microbiome data  data <- read.csv2("path_to_your_microbiome_data.csv", header = TRUE, na.strings = "")  # Reshape data to long format  data_long <- pivot_longer(data, cols = -OTU_ID, names_to = "Sample", values_to = "Abundance")  # Perform alpha diversity analysis  alpha_diversity <- data_long %>%    group_by(Sample) %>%    summarise(alpha_diversity = diversity(Abundance, index = "shannon"))  # Plotting  ggplot(alpha_diversity, aes(x = Sample, y = alpha_diversity)) +    geom_bar(stat = "identity", fill = "skyblue", color = "black") +    labs(title = "Alpha Diversity by Sample", x = "Sample", y = "Alpha Diversity") +    theme_minimal()   `
 
 
 
