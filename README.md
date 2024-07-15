@@ -43,12 +43,12 @@ Quality assessment of sequencing data was performed using the following tools:
 multiqc /path_to_fastqc_outputs -o /output_directory
 
 
--**Adapter Trimming with Cutadapt**:
+### Adapter Trimming with Cutadapt
    
 ```bash
 cutadapt -a ADAPTER_SEQUENCE -o output.fastq input.fastq
 
--**Variant_calling**: 
+###Variant_calling 
 Multiple tools were evaluated for variant calling, including Snippy, GATK, Bcftools, and Lofreq, based on read coverage and depth against the reference sequence.
 ### Functional Annotation
 
