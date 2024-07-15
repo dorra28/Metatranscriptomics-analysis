@@ -48,12 +48,15 @@ multiqc /path_to_fastqc_outputs -o /output_directory
 ```bash
 cutadapt -a ADAPTER_SEQUENCE -o output.fastq input.fastq
 
-###Variant_calling 
+### Variant Calling
+
 Multiple tools were evaluated for variant calling, including Snippy, GATK, Bcftools, and Lofreq, based on read coverage and depth against the reference sequence.
+
 ### Functional Annotation
 
 ```bash
 java -jar snpEff.jar -v genome_version input.vcf > output.ann.vcf
+
 ### Genome Assembly
 
 ```bash
